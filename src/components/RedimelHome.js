@@ -1,6 +1,6 @@
 function RedimelHome() {
     return (
-        <div className="redimel-home">
+        <div className="Redimel-home">
             Welcome to Redimel!!!
         </div>
     );

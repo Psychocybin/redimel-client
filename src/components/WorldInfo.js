@@ -1,6 +1,6 @@
 function WorldInfo() {
     return (
-        <div className="world-info">
+        <div className="World-info">
             This land is the world of humans!
         </div>
     );

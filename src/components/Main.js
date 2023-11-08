@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 
-import StartGame from "./StartGame";
+import StartGame from "./Page/StartGame";
 
 function Main(props) {
     let [count, setCount] = useState(0);
@@ -10,8 +10,8 @@ function Main(props) {
 
     return (
         <main className="Main">
-            <button><StartGame />start game</button>
-            <p>{props.children}</p>
+            {/* <button><StartGame />start game</button> */}
+            <div>{props.children}</div>
             <p>{count}</p>
             <button onClick={addButtonClickHandler}>+</button>
         </main>

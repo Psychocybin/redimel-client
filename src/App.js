@@ -6,7 +6,7 @@ import Main from './components/Main';
 import WorldInfo from './components/WorldInfo';
 import './App.css';
 import RedimelHome from './components/RedimelHome';
-import StartGame from './components/StartGame';
+import StartGame from './components/Page/StartGame';
 
 function App() {
 	const [page, setPage] = useState('/redimel-home');
