@@ -15,7 +15,7 @@ function StartGame() {
 
     return (
         <div>
-            <h5>Let's get the party started</h5>
+            {/* <h5>Let's get the party started</h5> */}
             { pages.length > 0
                 ? pages.map(x => <CurrentPage key={x.id} page={x} />) 
                 : <h3>No Pages!</h3>

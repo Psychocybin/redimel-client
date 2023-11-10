@@ -1,32 +1,26 @@
 import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Main from './components/Main';
 import WorldInfo from './components/WorldInfo';
 import './App.css';
 import RedimelHome from './components/RedimelHome';
 import StartGame from './components/Page/StartGame';
 
 function App() {
-	const [page, setPage] = useState('/redimel-home');
-
-	const routes = {
-		'/world-info': <WorldInfo />,
-		'/redimel-home': <RedimelHome />,
-		'/start-game': <StartGame />
-	};
-
-	const navigationChangeHandler = (path) => {
-		setPage(path);
-	};
+	const [page, setPage] = useState('/');
 
 	return (
 		<div className="App">
-			<Header
-				navigationChangeHandler = {navigationChangeHandler}
-			/>
-			<Main>{ routes[page] }</Main>
+			<Header />
+			<main>
+				<Routes>
+					<Route path="/" element={<RedimelHome />} />
+					<Route path='/world-info' element={<WorldInfo />} />
+					<Route path='/start-game' element={<StartGame />} />
+				</Routes>
+			</main>
 			<Footer />
 		</div>
 	);

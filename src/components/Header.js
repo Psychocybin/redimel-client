@@ -1,25 +1,15 @@
-function Header({
-    navigationChangeHandler,
-}) {
-    const onHeaderClick = (e) => {
-        e.preventDefault();
+import { Link } from "react-router-dom";
 
-        if (e.target.tagName === 'A') {
-            let url = new URL(e.target.href);
-
-            navigationChangeHandler(url.pathname);
-        }
-    };
-
+function Header({}) {
     return (
-        <header className="App-header" onClick={onHeaderClick}>
+        <header className="App-header">
             <h1>REDIMEL - the world of humans</h1>
             <nav>
-                <a href="/start-game">All Pages</a>
+                <Link to="/start-game">All Pages</Link>
                 <p> </p>
-                <a href="/world-info">Information</a>
+                <Link to="/world-info">Information</Link>
                 <p> </p>
-                <a href="/redimel-home">Home</a>
+                <Link to="/">Home</Link>
             </nav>
         </header>
     );
