@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { getAll} from "../../services/redimelInfoService";
+import { getAll } from "../../services/redimelInfoService";
 
 import RedimelInfo from "./RedimelInfo";
 
@@ -15,7 +15,7 @@ const RedimelInfos = () => {
     }, []);
 
     return (
-        <section className="redimel-infos">
+        <section className="redimel-infos-h1">
             <h1>Допълнителна информация за Редимел</h1>
 
             <section>

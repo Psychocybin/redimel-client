@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getOne } from "../../services/redimelInfoService";
 
@@ -14,9 +14,10 @@ const CurrentRedimelInfo = () => {
     }, []);
 
     return (
-        <section>
+        <section className="redimel-info">
             <h3>{info.title}</h3>
             <p>{info.description}</p>
+            <p><Link to=".." relative="path">Back</Link></p>
         </section>
     );
 }

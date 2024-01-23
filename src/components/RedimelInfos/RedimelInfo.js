@@ -5,7 +5,7 @@ const RedimelInfo = ({
 }) => {
     return (
         <ul>
-            <Link to={`/redimel-info/${currentInfo.id}`}><button>{<h3>{currentInfo.title}</h3>}</button></Link>
+            <Link to={`/redimel-infos/${currentInfo.id}`}><button>{<h3>{currentInfo.title}</h3>}</button></Link>
         </ul>
     );
 }
