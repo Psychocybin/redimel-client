@@ -18,7 +18,7 @@ function App() {
 		jwtToken: '',
 	});
 
-	const onLogin = (authData) => {
+	function onAuthLogin(authData) {
 		setUser(authData);
 		console.log(authData);
 	}
@@ -36,7 +36,7 @@ function App() {
 					<Routes>
 						<Route path="/" element={<RedimelHome />} />
 						<Route path="/start-new-game" element={<StartNewGame />} />
-						<Route path="/login" element={<Login onLogin={onLogin} />} />
+						<Route path="/login" element={<Login onLogin={onAuthLogin} />} />
 						{/* <Route path="/logout" element={<Logout onLogout={onLogout} />} /> */}
 						<Route path='/world-info' element={<WorldInfo />} />
 						<Route path='/start-game' element={<StartGame />} />

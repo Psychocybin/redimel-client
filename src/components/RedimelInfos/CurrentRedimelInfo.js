@@ -11,7 +11,7 @@ const CurrentRedimelInfo = () => {
             .then(infoResult => {
                 setInfo(infoResult);
             });
-    }, []);
+    }, [infoId]);
 
     return (
         <section className="redimel-info">

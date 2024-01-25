@@ -42,6 +42,7 @@ function Header({
                     <NavLink 
                         to="/"
                         className={({ isActive }) => isActive ? 'navbar-active' : undefined}
+                        end
                     >
                         Home
                     </NavLink>    
@@ -58,6 +59,13 @@ function Header({
                         className={({ isActive }) => isActive ? 'navbar-active' : undefined}
                     >
                         Start New Game
+                    </NavLink>
+                    <p />
+                    <NavLink 
+                        to="/start-game"
+                        className={({ isActive }) => isActive ? 'navbar-active' : undefined}
+                    >
+                        All Pages
                     </NavLink>
 
                     {jwtToken
