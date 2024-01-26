@@ -1,8 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { useContext } from "react";
 
-function Header({
-    jwtToken
-}) {
+import { AuthContext } from "../../contexts/AuthContext";
+
+function Header() {
+    const { jwtToken } = useContext(AuthContext);
+
     let guestNavigation = (
         <div id="guest">
             <p />
@@ -24,6 +27,10 @@ function Header({
             >
                 All Pages
             </NavLink>
+            <p> </p>
+            <Link to="/logout">
+                Logout
+            </Link>
         </div>
     );
 
@@ -59,13 +66,6 @@ function Header({
                         className={({ isActive }) => isActive ? 'navbar-active' : undefined}
                     >
                         Start New Game
-                    </NavLink>
-                    <p />
-                    <NavLink 
-                        to="/start-game"
-                        className={({ isActive }) => isActive ? 'navbar-active' : undefined}
-                    >
-                        All Pages
                     </NavLink>
 
                     {jwtToken

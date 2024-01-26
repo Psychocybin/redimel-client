@@ -12,23 +12,23 @@ import StartNewGame from './components/StartNewGame/StartNewGame';
 import CurrentRedimelInfo from './components/RedimelInfos/CurrentRedimelInfo';
 import RedimelInfos from './components/RedimelInfos/RedimelInfos';
 import Login from './components/Login/Login';
+import Logout from './components/Logout/Logout';
 
 function App() {
 	const [user, setUser] = useState({
 		jwtToken: '',
 	});
 
-	function onAuthLogin(authData) {
+	function login(authData) {
 		setUser(authData);
-		console.log(authData);
 	}
 
-	const onLogout = () => {
-
+	function logout() {
+		setUser('');
 	}
 
 	return (
-		<AuthContext.Provider value={true}>
+		<AuthContext.Provider value={{...user, login, logout}}>
 			<div id='container' className="app">
 				<Header jwtToken={user.jwtToken} />
 
@@ -36,8 +36,8 @@ function App() {
 					<Routes>
 						<Route path="/" element={<RedimelHome />} />
 						<Route path="/start-new-game" element={<StartNewGame />} />
-						<Route path="/login" element={<Login onLogin={onAuthLogin} />} />
-						{/* <Route path="/logout" element={<Logout onLogout={onLogout} />} /> */}
+						<Route path="/login" element={<Login />} />d
+						<Route path="/logout" element={<Logout />} />
 						<Route path='/world-info' element={<WorldInfo />} />
 						<Route path='/start-game' element={<StartGame />} />
 						<Route path='/redimel-infos' element={<RedimelInfos />} />
