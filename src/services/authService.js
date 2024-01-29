@@ -17,15 +17,13 @@ export const login = async (username, password) => {
 }
 
 export const logout = () => {
-    localStorage.removeItem('username');
+    //localStorage.removeItem('username');
 }
 
-export const getUser = () => {
-    let username = localStorage.getItem('username');
-
-    return username;
+export const register = () => {
+    
 }
 
-export const isAuthenticated = () => {
-    return Boolean(getUser());
-}
+// export const isAuthenticated = () => {
+//     return Boolean(getUser());
+// }

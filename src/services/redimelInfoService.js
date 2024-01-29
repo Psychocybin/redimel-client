@@ -1,9 +1,9 @@
-export function getOne(infoId) {
-    return fetch(`https://localhost:7260/api/RedimelInfos/${infoId}`)
-        .then(res => res.json())
+export async function getOne(infoId) {
+    const res = await fetch(`https://localhost:7260/api/RedimelInfos/${infoId}`)
+    return await res.json()
 }
 
-export function getAll() {
-    return fetch(`https://localhost:7260/api/RedimelInfos`)
-        .then(res => res.json())
+export async function getAll() {
+    const res = await fetch(`https://localhost:7260/api/RedimelInfos`)
+        return await res.json();
 }

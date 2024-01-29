@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { AuthContext } from './contexts/AuthContext';
+import useLocalStorage from './hooks/useLocalStorage';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import WorldInfo from './components/WorldInfo/WorldInfo';
@@ -15,7 +16,7 @@ import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 
 function App() {
-	const [user, setUser] = useState({
+	const [user, setUser] = useLocalStorage('user', {
 		jwtToken: '',
 	});
 
@@ -30,7 +31,7 @@ function App() {
 	return (
 		<AuthContext.Provider value={{...user, login, logout}}>
 			<div id='container' className="app">
-				<Header jwtToken={user.jwtToken} />
+				<Header />
 
 				<main id='site-content' className='main'>
 					<Routes>
