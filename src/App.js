@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { AuthContext } from './contexts/AuthContext';
@@ -14,22 +14,37 @@ import CurrentRedimelInfo from './components/RedimelInfos/CurrentRedimelInfo';
 import RedimelInfos from './components/RedimelInfos/RedimelInfos';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
+import Register from './components/Register/Register';
+
+const initialUser = 'user';
+const initialAuthState = {
+	jwtToken: '',
+};
 
 function App() {
-	const [user, setUser] = useLocalStorage('user', {
-		jwtToken: '',
-	});
+	const [user, setUser] = useLocalStorage(initialUser, initialAuthState);
+	const [additionalMessage, setAdditionalMessage] = useState(null);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setAdditionalMessage(null);
+		}, 10000);
+	}, [additionalMessage])
 
 	function login(authData) {
 		setUser(authData);
 	}
 
 	function logout() {
-		setUser('');
+		setUser(initialAuthState);
+	}
+
+	function changeMessage(message) {
+		setAdditionalMessage(message);
 	}
 
 	return (
-		<AuthContext.Provider value={{...user, login, logout}}>
+		<AuthContext.Provider value={{...user, additionalMessage, login, logout, changeMessage}}>
 			<div id='container' className="app">
 				<Header />
 
@@ -37,7 +52,8 @@ function App() {
 					<Routes>
 						<Route path="/" element={<RedimelHome />} />
 						<Route path="/start-new-game" element={<StartNewGame />} />
-						<Route path="/login" element={<Login />} />d
+						<Route path="/register" element={<Register />} />
+						<Route path="/login" element={<Login />} />
 						<Route path="/logout" element={<Logout />} />
 						<Route path='/world-info' element={<WorldInfo />} />
 						<Route path='/start-game' element={<StartGame />} />

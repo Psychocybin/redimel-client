@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
+import { useContext } from "react";
+
+import { AuthContext } from "../../contexts/AuthContext";
 
 import CurrentPage from "./CurrentPage";
 import * as pageService from "../../services/pageService";
 
 function StartGame() {
+    const { jwtToken } = useContext(AuthContext);
     const [pages, setPages] = useState([]);
 
     useEffect(() => {
-        pageService.getAll()
+        pageService.getAll(jwtToken)
             .then(pages => {
                 setPages(pages);
             });
-    }, []);
+    }, [jwtToken]);
 
     return (
         <div>

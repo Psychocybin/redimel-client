@@ -7,7 +7,33 @@ export const login = async (username, password) => {
         body: JSON.stringify({ username, password })
     });
 
-    let jsonResult = await res.json();
+    if (res.ok) {
+        let jsonResult = await res.json();
+
+        return jsonResult;
+    } else {
+        let jsonResult = await res.text();
+
+        throw jsonResult;
+    }
+}
+
+export const logout = (jwtToken) => {
+    // TO DO - send request to server
+}
+
+export const register = async (username, password) => {
+    const roles = ["READER"];
+
+    let res = await fetch('https://localhost:7260/api/Auth/Register', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({ username, password, roles })
+    });
+
+    let jsonResult = await res.text();
 
     if (res.ok) {
         return jsonResult;
@@ -15,15 +41,3 @@ export const login = async (username, password) => {
         throw jsonResult;
     }
 }
-
-export const logout = () => {
-    //localStorage.removeItem('username');
-}
-
-export const register = () => {
-    
-}
-
-// export const isAuthenticated = () => {
-//     return Boolean(getUser());
-// }

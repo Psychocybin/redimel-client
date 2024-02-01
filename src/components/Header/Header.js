@@ -15,6 +15,13 @@ function Header() {
             >
                 Login
             </NavLink>
+            <p />
+            <NavLink 
+                to="/register"
+                className={({ isActive }) => isActive ? 'navbar-active' : undefined}
+            >
+                Register
+            </NavLink>
         </div>
     );
 
@@ -58,7 +65,7 @@ function Header() {
                         to="/redimel-infos"
                         className={({ isActive }) => isActive ? 'navbar-active' : undefined}
                     >
-                        RedimelInfos
+                        Информация за света
                     </NavLink>
                     <p> </p>
                     <NavLink 

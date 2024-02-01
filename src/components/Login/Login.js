@@ -6,35 +6,30 @@ import { AuthContext } from "../../contexts/AuthContext";
 import * as authService from '../../services/authService';
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login, changeMessage } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onLoginHandler = (e) => {
-        const proceed = window.confirm("Are you sure?");
+        // const proceed = window.confirm("Are you sure?");
+        
+        e.preventDefault();
 
-        if (proceed) {
-            e.preventDefault();
+        let formData = new FormData(e.currentTarget);
+        let username = formData.get('email');
+        let password = formData.get('password');
 
-            let formData = new FormData(e.currentTarget);
+        //const data = Object.fromEntries(formData.entries());
+        //const specificData = formData.getAll('SameNameInputs');
+        
+        authService.login(username, password)
+            .then((authData) => {
+                login(authData);
+            })
+            .catch(err => {
+                changeMessage(err);
+            })
 
-            let username = formData.get('email');
-            let password = formData.get('password');
-
-            //const data = Object.fromEntries(formData.entries());
-            //const specificData = formData.getAll('SameNameInputs');
-
-            authService.login(username, password)
-                .then((authData) => {
-                    login(authData);
-
-                    navigate('/');
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-        } else {
-            navigate('/');
-        }
+        navigate('/');
     }
 
     // const submitHandler = (e) => {

@@ -1,17 +1,31 @@
-import { Navigate, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
 
 import { AuthContext } from "../../contexts/AuthContext";
 
-import * as authService from '../../services/authService';
+export default function Logout() {
+    const { logout, changeMessage } = useContext(AuthContext);
 
-const Logout = () => {
-    const { logout } = useContext(AuthContext);
+    useEffect(() => {
+        logout();
+    }, [logout]);
 
-    authService.logout();
-    logout();
+    changeMessage("See you later alligator!");
+    
+    return <Navigate to="/" replace={true} />
 
-    return <Navigate to="/login" replace={true} />
+
+
+    // const navigate = useNavigate();
+    // const { jwtToken, logout } = useContext(AuthContext);
+
+    // useEffect(() => {
+    //     authService.logout(jwtToken)
+    //         .then(() => {
+    //             logout();
+    //             navigate('/');
+    //         });
+    // }, [])
+
+    //return null;
 }
-
-export default Logout;
