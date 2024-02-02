@@ -1,9 +1,7 @@
-import { useContext } from "react";
-
-import { AuthContext } from "../../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 function RedimelHome() {
-    const { additionalMessage, jwtToken } = useContext(AuthContext);
+    const { additionalMessage, jwtToken } = useAuth();
 
     return (
         <div className="Redimel-home">

@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { AuthContext } from './contexts/AuthContext';
-import useLocalStorage from './hooks/useLocalStorage';
+import { AuthProvider } from './contexts/AuthContext';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import WorldInfo from './components/WorldInfo/WorldInfo';
@@ -16,35 +14,30 @@ import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
 
-const initialUser = 'user';
-const initialAuthState = {
-	jwtToken: '',
-};
-
 function App() {
-	const [user, setUser] = useLocalStorage(initialUser, initialAuthState);
-	const [additionalMessage, setAdditionalMessage] = useState(null);
+	// const [user, setUser] = useLocalStorage('user', initialAuthState);
+	// const [additionalMessage, setAdditionalMessage] = useState(null);
 
-	useEffect(() => {
-		setTimeout(() => {
-			setAdditionalMessage(null);
-		}, 10000);
-	}, [additionalMessage])
+	// useEffect(() => {
+	// 	setTimeout(() => {
+	// 		setAdditionalMessage(null);
+	// 	}, 10000);
+	// }, [additionalMessage])
 
-	function login(authData) {
-		setUser(authData);
-	}
+	// function login(authData) {
+	// 	setUser(authData);
+	// }
 
-	function logout() {
-		setUser(initialAuthState);
-	}
+	// function logout() {
+	// 	setUser(initialAuthState);
+	// }
 
-	function changeMessage(message) {
-		setAdditionalMessage(message);
-	}
+	// function changeMessage(message) {
+	// 	setAdditionalMessage(message);
+	// }
 
 	return (
-		<AuthContext.Provider value={{...user, additionalMessage, login, logout, changeMessage}}>
+		<AuthProvider>
 			<div id='container' className="app">
 				<Header />
 
@@ -64,7 +57,7 @@ function App() {
 
 				<Footer />
 			</div>
-		</AuthContext.Provider>
+		</AuthProvider>
 	);
 }
 
