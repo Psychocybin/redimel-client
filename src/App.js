@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 
 import { AuthProvider } from './contexts/AuthContext';
+import ErrorBoundary from './ErrorBoundary';
+
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import WorldInfo from './components/WorldInfo/WorldInfo';
@@ -17,27 +19,29 @@ import Register from './components/Register/Register';
 function App() {
 	
 	return (
-		<AuthProvider>
-			<div id='container' className="app">
-				<Header />
+		<ErrorBoundary>
+			<AuthProvider>
+				<div id='container' className="app">
+					<Header />
 
-				<main id='site-content' className='main'>
-					<Routes>
-						<Route path="/" element={<RedimelHome />} />
-						<Route path="/start-new-game" element={<StartNewGame />} />
-						<Route path="/register" element={<Register />} />
-						<Route path="/login" element={<Login />} />
-						<Route path="/logout" element={<Logout />} />
-						<Route path='/world-info' element={<WorldInfo />} />
-						<Route path='/start-game' element={<StartGame />} />
-						<Route path='/redimel-infos' element={<RedimelInfos />} />
-						<Route path="/redimel-infos/:infoId" element={<CurrentRedimelInfo />} />
-					</Routes>
-				</main>
+					<main id='site-content' className='main'>
+						<Routes>
+							<Route path="/" element={<RedimelHome />} />
+							<Route path="/start-new-game" element={<StartNewGame />} />
+							<Route path="/register" element={<Register />} />
+							<Route path="/login" element={<Login />} />
+							<Route path="/logout" element={<Logout />} />
+							<Route path='/world-info' element={<WorldInfo />} />
+							<Route path='/start-game' element={<StartGame />} />
+							<Route path='/redimel-infos' element={<RedimelInfos />} />
+							<Route path="/redimel-infos/:infoId" element={<CurrentRedimelInfo />} />
+						</Routes>
+					</main>
 
-				<Footer />
-			</div>
-		</AuthProvider>
+					<Footer />
+				</div>
+			</AuthProvider>
+		</ErrorBoundary>
 	);
 }
 
