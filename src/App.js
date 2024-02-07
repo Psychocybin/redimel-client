@@ -15,27 +15,7 @@ import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
 
 function App() {
-	// const [user, setUser] = useLocalStorage('user', initialAuthState);
-	// const [additionalMessage, setAdditionalMessage] = useState(null);
-
-	// useEffect(() => {
-	// 	setTimeout(() => {
-	// 		setAdditionalMessage(null);
-	// 	}, 10000);
-	// }, [additionalMessage])
-
-	// function login(authData) {
-	// 	setUser(authData);
-	// }
-
-	// function logout() {
-	// 	setUser(initialAuthState);
-	// }
-
-	// function changeMessage(message) {
-	// 	setAdditionalMessage(message);
-	// }
-
+	
 	return (
 		<AuthProvider>
 			<div id='container' className="app">

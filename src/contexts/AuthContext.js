@@ -33,7 +33,7 @@ export function AuthProvider({
 	}
 
     return (
-        <AuthContext.Provider value={{...user, additionalMessage, login, logout, changeMessage}}>
+        <AuthContext.Provider value={{...user, additionalMessage, login, logout, changeMessage, isAuthenticated: Boolean(user.jwtToken)}}>
             {children}
         </AuthContext.Provider>
     );
