@@ -28,7 +28,7 @@ const Login = () => {
                 changeMessage(err);
             })
 
-        navigate('/');
+        navigate('/', { replace: true });
     }
 
     // const submitHandler = (e) => {

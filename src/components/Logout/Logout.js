@@ -2,6 +2,8 @@ import { Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 
+// import * as authService from '../../services/authService';
+
 export default function Logout() {
     const { logout, changeMessage } = useAuth();
 
@@ -16,7 +18,7 @@ export default function Logout() {
 
 
     // const navigate = useNavigate();
-    // const { jwtToken, logout } = useContext(AuthContext);
+    // const { jwtToken, logout, changeMessage } = useAuth();
 
     // useEffect(() => {
     //     authService.logout(jwtToken)
@@ -24,7 +26,9 @@ export default function Logout() {
     //             logout();
     //             navigate('/');
     //         });
-    // }, [])
+    // }, [jwtToken, logout, navigate])
 
-    //return null;
+    // changeMessage("See you later alligator!");
+
+    // return null;
 }
