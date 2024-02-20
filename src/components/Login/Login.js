@@ -68,7 +68,7 @@ const Login = () => {
                             <input type="password" name="password" id="password" placeholder="Password" required/>
                         </span>
                     </p>
-                    <input className="button submit" type="submit" value="Login"/>
+                    <input className="button-submit" type="submit" value="Login"/>
                 </fieldset>
                 {/* <div>
                     <label htmlFor="username">Username</label>

@@ -49,7 +49,7 @@ export default function Register() {
                             <input type="password" name="password" id="password" placeholder="Password" required/>
                         </span>
                     </p>
-                    <input className="button submit" type="submit" value="Register"/>
+                    <input className="button-submit" type="submit" value="Register"/>
                 </fieldset>
             </form>
         </section>

@@ -8,13 +8,14 @@ import Header from './components/Header/Header';
 import WorldInfo from './components/WorldInfo/WorldInfo';
 import './App.css';
 import RedimelHome from './components/RedimelHome/RedimelHome';
-import StartGame from './components/Page/StartGame';
+import StartGame from './components/ContinueGame/StartGame';
 import StartNewGame from './components/StartNewGame/StartNewGame';
 import CurrentRedimelInfo from './components/RedimelInfos/CurrentRedimelInfo';
 import RedimelInfos from './components/RedimelInfos/RedimelInfos';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
+import RemoveBattleGroup from './components/RemoveBattleGroup/RemoveBattleGroup';
 
 function App() {
 	
@@ -28,6 +29,7 @@ function App() {
 						<Routes>
 							<Route path="/" element={<RedimelHome />} />
 							<Route path="/start-new-game" element={<StartNewGame />} />
+							<Route path="/remove-battle-group" element={<RemoveBattleGroup />} />
 							<Route path="/register" element={<Register />} />
 							<Route path="/login" element={<Login />} />
 							<Route path="/logout" element={<Logout />} />

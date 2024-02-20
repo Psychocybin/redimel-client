@@ -32,7 +32,7 @@ function Header() {
                 to="/start-game"
                 className={({ isActive }) => isActive ? 'navbar-active' : undefined}
             >
-                All Pages
+                Continue Game
             </NavLink>
             <p> </p>
             <Link to="/logout">
