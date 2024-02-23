@@ -21,7 +21,7 @@
 
 .main {
   font-size: large;
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 
@@ -61,4 +61,36 @@
   display: inline-block;
   font-size: 14px;
   border-radius: 8px;
+}
+
+.start-game-container {
+  width: 100%;
+  height: 100vh;
+  border-style: outset;
+}
+
+.leftpane {
+  width: 20%;
+  height: 100vh;
+  background-color: rosybrown;
+}
+
+.middlepane {
+  width: 60%;
+  height: 100vh;
+  background-color: royalblue;
+}
+
+.rightpane {
+  width: 20%;
+  height: 100vh;
+  background-color: yellow;
+}
+
+body {
+  margin: 0!important;
+}
+
+.d-flex {
+  display: flex;
 }

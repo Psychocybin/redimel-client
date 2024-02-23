@@ -9,9 +9,8 @@ export default function Logout() {
 
     useEffect(() => {
         logout();
-    }, [logout]);
-
-    changeMessage("See you later alligator!");
+        changeMessage("See you later alligator!");
+    }, [logout, changeMessage]);
     
     return <Navigate to="/" replace={true} />
 
