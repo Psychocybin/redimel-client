@@ -75,6 +75,10 @@
   background-color: rosybrown;
 }
 
+.leftpane button {
+  width: 100%;
+}
+
 .middlepane {
   width: 60%;
   height: 100vh;
@@ -93,4 +97,9 @@ body {
 
 .d-flex {
   display: flex;
+}
+
+.show-stats {
+  text-align: left;
+  padding-left: 2%;
 }

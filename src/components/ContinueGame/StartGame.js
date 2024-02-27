@@ -1,34 +1,29 @@
-import { useEffect, useState } from "react";
-import { useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import { isAuth } from "../../hoc/isAuth";
 
 import CurrentPage from "./CurrentPage";
-import * as pageService from "../../services/pageService";
+// import * as pageService from "../../services/pageService";
 import * as startGameService from "../../services/startGameService";
+import CurrentGroupWest from "./CurrentGroupWest";
 import CurrentHero from "./CurrentHero";
 import ShowHeroStats from "./ShowHeroStats";
+import ShowGroupWestStats from "./ShowGroupWestStats";
 
 function StartGame() {
     const { jwtToken } = useContext(AuthContext);
-    const [ user, setUser ] = useState(null);
-    const [ battlePoints, setBattlePoints ] = useState(null);
-    const [ page, setPage ] = useState(null);
-    // const [ warrior, setWarrior ] = useState(null);
-    const [ heroes, setHeroes ] = useState(null);
-    const [ showStats, setShowStats ] = useState([]);
-    const [ currentBattlePoints, setCurrentBattlePoints ] = useState([]);
-
-
-    
+    const [user, setUser] = useState(null);
+    const [battlePoints, setBattlePoints] = useState(null);
+    const [page, setPage] = useState(null);
+    const [showGroupWestStats, setShowGroupWestStats] = useState(null);
+    const [showHeroStats, setShowHeroStats] = useState(null);
+    const [currentBattlePoints, setCurrentBattlePoints] = useState(null);
 
     useEffect(() => {
         startGameService.getUserAndPage(jwtToken)
             .then(userRes => {
                 setUser(userRes.user);
-                setHeroes(userRes.user.groupWest.heroes);
-                // setWarrior(userRes.user.groupWest.heroes.filter(x => x.heroType === 1));
                 setBattlePoints(userRes.battlePoints);
                 setPage(userRes.page);
             })
@@ -37,29 +32,41 @@ function StartGame() {
             });
     }, [jwtToken]);
 
-    // useEffect(() => {
-    //     setHeroes(user.groupWest.heroes);
-    // }, [user]);
-
-    // useEffect(() => {
-    //     setWarrior(heroes.filter(x => x.name === ("Vranko")));
-    // }, [heroes]);
-
-    // console.log(user);
-    // console.log(warrior);
-    // console.log(battlePoints);
-
     let response = (user && page && battlePoints) ? true : false
 
     const onShowHeroHandler = (heroId, event) => {
         event.preventDefault();
 
-        setShowStats(heroes.find(x => x.id === heroId));
-        setCurrentBattlePoints(battlePoints.find(x => x.heroId === heroId));
+        setShowGroupWestStats(null);
 
+        setShowHeroStats(user.groupWest.heroes.find(x => x.id === heroId));
+        setCurrentBattlePoints(battlePoints.find(x => x.heroId === heroId));
     }
 
-    // console.log(currentBattlePoints);
+    const onShowGroupWestHandler = (e) => {
+        e.preventDefault();
+
+        let gw = {
+            timeCounter: user.timeCounter,
+            actualMission: user.groupWest.actualMission,
+            missions: user.groupWest.missions,
+            battleGroups: user.groupWest.aditionalPoints.battleGroups,
+            negotiations: user.groupWest.aditionalPoints.negotiations,
+            cover: user.groupWest.aditionalPoints.cover,
+            importantInformation: user.groupWest.aditionalPoints.importantInformation,
+            morals: user.groupWest.aditionalPoints.morals,
+            slainMonsters: user.groupWest.aditionalPoints.slainMonsters,
+            teamGame: user.groupWest.aditionalPoints.teamGame,
+            temporaryPoints: user.groupWest.aditionalPoints.temporaryPoints
+        }
+
+        setShowHeroStats(null);
+        setCurrentBattlePoints(null);
+
+        setShowGroupWestStats(gw);
+    }
+
+    console.log(user);
 
     return (
         <div>
@@ -68,14 +75,19 @@ function StartGame() {
                     <div className="start-game-container">
                         <div className="d-flex">
                             <div className="leftpane">
-                                {heroes.map(x => <CurrentHero key={x.id} heroId={x.id} heroStats={x} onShowHeroHandler={onShowHeroHandler}/>)}
-                                {/* <HeroesNavbar user={user} battlePoints={battlePoints} /> */}
+                                <li>
+                                    <ul key={user.groupWest.id + 1}><CurrentGroupWest key={user.groupWest.id} currentGroupName={"GroupWest"} onShowGroupWestHandler={onShowGroupWestHandler} /></ul>
+                                    {user.groupWest.heroes.map(x =>
+                                        <ul key={x.id + 1}><CurrentHero key={x.id} heroId={x.id} heroType={x.heroType} onShowHeroHandler={onShowHeroHandler} /></ul>
+                                    )}
+                                </li>
                             </div>
                             <div className="middlepane">
                                 <CurrentPage page={page} />
                             </div>
                             <div className="rightpane">
-                                {<ShowHeroStats hero={showStats} heroBattlePoints={currentBattlePoints}/>}
+                                {showGroupWestStats && <ShowGroupWestStats groupWest={showGroupWestStats} />}
+                                {showHeroStats && <ShowHeroStats hero={showHeroStats} heroBattlePoints={currentBattlePoints} />}
                             </div>
                         </div>
                     </div>
