@@ -77,7 +77,7 @@ function StartGame() {
                             <div className="leftpane">
                                 <li>
                                     <ul key={user.groupWest.id + 1}><CurrentGroupWest key={user.groupWest.id} currentGroupName={"GroupWest"} onShowGroupWestHandler={onShowGroupWestHandler} /></ul>
-                                    {user.groupWest.heroes.map(x =>
+                                    {user.groupWest.heroes.sort((x, y) => (x.orderOfBattle - y.orderOfBattle)).map(x =>
                                         <ul key={x.id + 1}><CurrentHero key={x.id} heroId={x.id} heroType={x.heroType} onShowHeroHandler={onShowHeroHandler} /></ul>
                                     )}
                                 </li>

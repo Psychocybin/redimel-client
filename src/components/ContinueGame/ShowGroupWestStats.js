@@ -12,18 +12,18 @@ export default function ShowGroupWestStats({
             <p>teamGame - {groupWest.teamGame}</p>
             <p>temporary points - {groupWest.temporaryPoints}</p>
             <p>actual mission - {groupWest.actualMission}</p>
-            <h4>missions
-                {groupWest.missions.map(x => 
-                    <p key={x.id}>- {x.name} - {x.isItDone ? "Complite" : "Active"}</p>
-                )}</h4>
-            <h4>battle groups
-                {groupWest.battleGroups.map(x => 
-                    <p key={x.id}>- {x.name}, number of people - {x.countPeople}</p>
-                )}</h4>
-            <h4>negotiations
-                {groupWest.negotiations.map(x => 
-                    <p key={x.id}>- {x.name}</p>
-                )}</h4>
+            <h4>missions</h4>
+            {groupWest.missions.map(x =>
+                <p key={x.id}>- {x.name} - {x.isItDone ? "Complite" : "Active"}</p>
+            )}
+            <h4>battle groups</h4>
+            {groupWest.battleGroups.map(x =>
+                <p key={x.id}>- {x.name}, number of people - {x.countPeople}</p>
+            )}
+            <h4>negotiations</h4>
+            {groupWest.negotiations.map(x =>
+                <p key={x.id}>- {x.name}</p>
+            )}
         </div>
     );
 }

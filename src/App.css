@@ -65,13 +65,13 @@
 
 .start-game-container {
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   border-style: outset;
 }
 
 .leftpane {
   width: 20%;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: rosybrown;
 }
 
@@ -81,13 +81,13 @@
 
 .middlepane {
   width: 60%;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: royalblue;
 }
 
 .rightpane {
   width: 20%;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: yellow;
 }
 
@@ -102,4 +102,8 @@ body {
 .show-stats {
   text-align: left;
   padding-left: 2%;
+}
+
+li {
+  list-style-type: none;
 }
