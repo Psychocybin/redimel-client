@@ -204,3 +204,28 @@ export function getWeaponType(weaponType) {
 
     return weaponType;
 }
+
+export function getTalismanType(talismanType) {
+    switch (talismanType) {
+        case 1:
+            talismanType = "Ring"
+            break;
+        case 2:
+            talismanType = "Brooch"
+            break;
+        case 3:
+            talismanType = "Pendant"
+            break;
+        case 4:
+            talismanType = "Amulet"
+            break;
+        case 5:
+            talismanType = "Implant"
+            break;
+
+        default:
+            break;
+    }
+
+    return talismanType;
+}

@@ -1,12 +1,8 @@
-import { getHeroType, getHeroClass, getArmorType, getShieldType, getThrowingWeaponType, getWeaponType } from "../../services/AuxiliaryService";
+import { getHeroType, getHeroClass, getArmorType, getShieldType, getThrowingWeaponType, getWeaponType, getTalismanType } from "../../services/AuxiliaryService";
 
 export default function ShowHeroStats({
     hero, heroBattlePoints
 }) {
-
-    // console.log(hero);
-    // console.log(heroBattlePoints);
-
     return (
         <div className="show-stats">
             <p>name - {hero.name}</p>
@@ -14,6 +10,16 @@ export default function ShowHeroStats({
             <p>hero class - {getHeroClass(hero.heroClass)}</p>
             <p>baggage capacity - {hero.baggageCapacity}</p>
             <p>order of battle - {hero.orderOfBattle}</p>
+            <h4>battle points</h4>
+            <p>attack with hand to hand weapon - {heroBattlePoints.attackWithHandToHandWeapon}</p>
+            <p>attack with ranged weapon - {heroBattlePoints.attackWithRangedWeapon}</p>
+            <p>damage with hand to hand weapon - {heroBattlePoints.damageWithHandToHandWeapon}</p>
+            <p>damage with ranged weapon - {heroBattlePoints.damageWithRangedWeapon}</p>
+            <p>defence with hand to hand weapon - {heroBattlePoints.defenceWithHandToHandWeapon}</p>
+            <p>defence with ranged weapon - {heroBattlePoints.defenceWithRangedWeapon}</p>
+            <p>defence against ranged weapon - {heroBattlePoints.defenceAgainstRangedWeapon}</p>
+            <p>defence armor - {heroBattlePoints.defenceArmor}</p>
+            <p>defence shield - {heroBattlePoints.defenceShield}</p>
             <h4>indicators</h4>
             <p>health - {hero.indicators.health}</p>
             <p>mental energy - {hero.indicators.mentalEnergy}</p>
@@ -23,12 +29,26 @@ export default function ShowHeroStats({
             <p>agility - {hero.indicators.agility}</p>
             <p>evasion - {hero.indicators.evasion}</p>
             <p>endurance - {hero.indicators.endurance}</p>
+            <h4>ability</h4>
+            {Object.entries(hero.ability).map(([key, value], x) =>
+                <div key={x}>
+                    {value === true && <p> - {key}</p>}
+                </div>
+            )}
             <h4>equipments</h4>
             <p>money bag - {hero.equipments.moneyBag}</p>
             <p>medic pack - {hero.equipments.medicPack ? "Yes" : "No"}</p>
             <p>knife - {hero.equipments.knife ? "Yes" : "No"}</p>
             <p>poison - {hero.equipments.poison ? "Yes" : "No"}</p>
             <p>smoke ball - {hero.equipments.smokeBall ? "Yes" : "No"}</p>
+            <h4>baggages (volume)</h4>
+            {hero.baggages.length > 0
+                ? hero.baggages.map(x =>
+                    <div key={x.id}>
+                        <p>{x.name} ({x.volume})</p>
+                    </div>)
+                : "None"
+            }
             <h4>weapon</h4>
             {hero.equipments.weapon.isExist
                 ? <>
@@ -39,8 +59,9 @@ export default function ShowHeroStats({
                     <p>damage - {hero.equipments.weapon.damage}</p>
                     <p>two hand - {hero.equipments.weapon.isItTwoHandWeapon ? "Yes" : "No"}</p>
                 </>
-                : "None"}
-                <h4>throwing weapon</h4>
+                : "None"
+            }
+            <h4>throwing weapon</h4>
             {hero.equipments.throwingWeapon.isExist
                 ? <>
                     <p>type - {getThrowingWeaponType(hero.equipments.throwingWeapon.throwingWeaponType)}</p>
@@ -50,40 +71,34 @@ export default function ShowHeroStats({
                     <p>damage - {hero.equipments.throwingWeapon.damage}</p>
                     <p>quantity - {hero.equipments.throwingWeapon.quantity}</p>
                 </>
-                : "None"}
+                : "None"
+            }
             <h4>armor</h4>
             {hero.equipments.armor.isExist
                 ? <>
                     <p>type - {getArmorType(hero.equipments.armor.armorType)}</p>
                     <p>defence - {hero.equipments.armor.defence}</p>
                 </>
-                : "None"}
-            
+                : "None"
+            }
             <h4>shield</h4>
             {hero.equipments.shield.isExist
                 ? <>
                     <p>type - {getShieldType(hero.equipments.shield.shieldType)}</p>
                     <p>defence - {hero.equipments.shield.defence}</p>
                 </>
-                : "None"}
-
-            {/* <p> - {hero.equipments.shield}</p>
-            <p> - {hero.equipments.throwingWeapon}</p>
-            <p> - {hero.equipments.weapon}</p>
-            <p> - {hero.equipments.talismans}</p>
-
-            
-
-            <p> - {hero.equipments}</p>
-            <p> - {hero.equipments}</p>
-            <p> - {hero.equipments}</p>
-            <p> - {hero.equipments}</p>
-            <p> - {hero.equipments}</p>
-            <p> - {hero.equipments}</p>
-            <p> - {hero.equipments}</p>
-            <p> - {hero.equipments}</p>
-            <p> - {hero.equipments}</p> */}
-
+                : "None"
+            }
+            <h4>talismans</h4>
+            {hero.equipments.talismans.length > 0
+                ? hero.equipments.talismans.map(x =>
+                    <div key={x.id}>
+                        <p>type - {getTalismanType(hero.equipments.talismans.talismansType)}</p>
+                        <p>name - {hero.equipments.talismans.name}</p>
+                        <p>{hero.equipments.talismans.bonusIndicator} - {hero.equipments.talismans.bonusPoints}</p>
+                    </div>)
+                : "None"
+            }
             <h4>special combat skill</h4>
             <p>required mental energy - {hero.specialAbility.specialCombatSkill.requiredMentalEnergy}</p>
             <p>skill level - {hero.specialAbility.specialCombatSkill.skillLevel}</p>
@@ -91,33 +106,43 @@ export default function ShowHeroStats({
             <p>required mental energy - {hero.specialAbility.ultimate.requiredMentalEnergy}</p>
             <p>skill level - {hero.specialAbility.ultimate.skillLevel}</p>
             <h4>nature skills</h4>
-            {hero.specialAbility.natureSkills.map(x =>
-                <div key={x.id}>
-                    <p>name - {x.name}</p>
-                    <p>required mental energy - {x.requiredMentalEnergy}</p>
-                    <p>skill level - {x.skillLevel}</p>
-                </div>
-            )}
+            {hero.specialAbility.natureSkills.length > 0
+                ? hero.specialAbility.natureSkills.map(x =>
+                    <div key={x.id}>
+                        <p>name - {x.name}</p>
+                        <p>required mental energy - {x.requiredMentalEnergy}</p>
+                        <p>skill level - {x.skillLevel}</p>
+                    </div>)
+                : "None"
+            }
             <h4>spells</h4>
-            {hero.specialAbility.spells.map(x =>
-                <div key={x.id}>
-                    <p>name - {x.name}</p>
-                    <p>required mental energy - {x.requiredMentalEnergy}</p>
-                    <p>skill level - {x.skillLevel}</p>
-                </div>
-            )}
+            {hero.specialAbility.spells.length > 0
+                ? hero.specialAbility.spells.map(x =>
+                    <div key={x.id}>
+                        <p>name - {x.name}</p>
+                        <p>required mental energy - {x.requiredMentalEnergy}</p>
+                        <p>skill level - {x.skillLevel}</p>
+                    </div>)
+                : "None"
+            }
             <h4>rituals</h4>
-            {hero.specialAbility.rituals.map(x =>
-                <div key={x.id}>
-                    <p>name - {x.name}</p>
-                    <p>required mental energy - {x.requiredMentalEnergy}</p>
-                    <p>skill level - {x.skillLevel}</p>
-                </div>
-            )}
-
-            {/* <p>ability - {hero.ability}</p>
-            <p>baggages - {hero.baggages}</p>
-            <p>promises - {hero.promises}</p> */}
+            {hero.specialAbility.rituals.length > 0
+                ? hero.specialAbility.rituals.map(x =>
+                    <div key={x.id}>
+                        <p>name - {x.name}</p>
+                        <p>required mental energy - {x.requiredMentalEnergy}</p>
+                        <p>skill level - {x.skillLevel}</p>
+                    </div>)
+                : "None"
+            }
+            <h4>promises</h4>
+            {hero.promises.length > 0
+                ? hero.promises.map(x =>
+                    <div key={x.id}>
+                        <h5>{x.name} - {x.IsItDone ? "fulfilled" : "unfulfilled"}</h5>
+                    </div>)
+                : "None"
+            }
         </div>
     );
 }

@@ -8,14 +8,14 @@ function Header() {
 
     let guestNavigation = (
         <div id="guest">
-            <p />
+            {/* <p /> */}
             <NavLink 
                 to="/login"
                 className={({ isActive }) => isActive ? 'navbar-active' : undefined}
             >
                 Login
             </NavLink>
-            <p />
+            {/* <p /> */}
             <NavLink 
                 to="/register"
                 className={({ isActive }) => isActive ? 'navbar-active' : undefined}
@@ -27,14 +27,14 @@ function Header() {
 
     let userNavigation = (
         <div id="user">
-            <p />
+            {/* <p /> */}
             <NavLink 
                 to="/start-game"
                 className={({ isActive }) => isActive ? 'navbar-active' : undefined}
             >
                 Continue Game
             </NavLink>
-            <p> </p>
+            {/* <p> </p> */}
             <Link to="/logout">
                 Logout
             </Link>
@@ -52,7 +52,7 @@ function Header() {
                     >
                         Information
                     </NavLink>
-                    <p> </p>
+                    {/* <p> </p> */}
                     <NavLink 
                         to="/"
                         className={({ isActive }) => isActive ? 'navbar-active' : undefined}
@@ -60,14 +60,14 @@ function Header() {
                     >
                         Home
                     </NavLink>    
-                    <p> </p>
+                    {/* <p> </p> */}
                     <NavLink 
                         to="/redimel-infos"
                         className={({ isActive }) => isActive ? 'navbar-active' : undefined}
                     >
                         Информация за света
                     </NavLink>
-                    <p> </p>
+                    {/* <p> </p> */}
                     <NavLink 
                         to="/start-new-game"
                         className={({ isActive }) => isActive ? 'navbar-active' : undefined}
