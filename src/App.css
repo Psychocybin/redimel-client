@@ -1,39 +1,47 @@
 .app {
   background-size: 80;
   text-align: center;
-  background-color: rgb(222, 214, 203);
+  background-color: rgb(223, 207, 190);
+  /* background-color: rgb(222, 214, 203); */
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serifs;
 }
 
 .app-header {
+  text-align: center;
   height: 15vh;
   text-decoration: solid;
   color: black;
   text-decoration-style: solid;
-  background-color: blueviolet;
+  background-color: rgb(152, 180, 212);
+}
+
+.btn-link {
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .site-footer {
   max-width: 20;
   height: 5vh;
-  color: aqua;
+  /* color: aqua; */
   text-size-adjust: 22;
-  background-color: pink;
+  background-color: rgb(152, 180, 212);
 }
 
 .main {
   font-size: large;
+  min-height: 80vh;
   width: 100%;
-  /* height: 80vh; */
   margin: auto;
 }
 
 .redimel-info {
   margin: 2rem auto;
   padding: 2rem;
-  max-width: 30rem;
+  max-width: 60rem;
   border-radius: 6px;
-  background: linear-gradient(#93c9cb, #6ed4db);
+  background-color: rgb(152, 180, 212);
+  /* background: linear-gradient(#93c9cb, #6ed4db); */
   box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 
@@ -43,7 +51,8 @@
 
 .dropdown-menu {
   border-style: solid;
-  background: rgb(219, 219, 160);
+  background-color: rgb(223, 207, 190);
+  /* background: rgb(219, 219, 160); */
   box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
 }
 
@@ -68,14 +77,13 @@
 
 .start-game-container {
   width: 100%;
-  /* height: 100vh; */
-  border-style: outset;
 }
 
 .leftpane {
   width: 20%;
   height: 80vh;
-  background-color: rosybrown;
+  background-color: rgb(152, 180, 212);
+  /* background-color: royalblue; */
 }
 
 .leftpane button {
@@ -85,14 +93,14 @@
 .middlepane {
   width: 60%;
   height: 80vh;
-  background-color: royalblue;
+  background-color: rgb(223, 207, 190);
 }
 
 .rightpane {
   font-size: medium;
   width: 20%;
   height: 80vh;
-  background-color: yellow;
+  background-color: rgb(152, 180, 212);
 }
 
 body {
@@ -110,4 +118,25 @@ body {
 
 li {
   list-style-type: none;
+}
+
+.page-text {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 40px;
+}
+
+.page-change-notices {
+  font-style: italic;
+}
+
+.page-choices button{
+  font-size: medium;
+  width: 60%;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: rgb(152, 180, 212);
+  /* background: linear-gradient(#93c9cb, #6ed4db); */
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }

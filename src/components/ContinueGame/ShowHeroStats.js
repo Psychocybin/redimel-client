@@ -29,10 +29,10 @@ export default function ShowHeroStats({
             <p>agility - {hero.indicators.agility}</p>
             <p>evasion - {hero.indicators.evasion}</p>
             <p>endurance - {hero.indicators.endurance}</p>
-            <h4>ability</h4>
+            <h4>abilities</h4>
             {Object.entries(hero.ability).map(([key, value], x) =>
                 <div key={x}>
-                    {value === true && <p> - {key}</p>}
+                    {value === true && <p>{key}</p>}
                 </div>
             )}
             <h4>equipments</h4>
@@ -93,9 +93,9 @@ export default function ShowHeroStats({
             {hero.equipments.talismans.length > 0
                 ? hero.equipments.talismans.map(x =>
                     <div key={x.id}>
-                        <p>type - {getTalismanType(hero.equipments.talismans.talismansType)}</p>
-                        <p>name - {hero.equipments.talismans.name}</p>
-                        <p>{hero.equipments.talismans.bonusIndicator} - {hero.equipments.talismans.bonusPoints}</p>
+                        <p>{hero.equipments.talismans.name}</p>
+                        <p>- type - {getTalismanType(hero.equipments.talismans.talismansType)}</p>
+                        <p>- {hero.equipments.talismans.bonusIndicator} + {hero.equipments.talismans.bonusPoints}</p>
                     </div>)
                 : "None"
             }
@@ -109,9 +109,9 @@ export default function ShowHeroStats({
             {hero.specialAbility.natureSkills.length > 0
                 ? hero.specialAbility.natureSkills.map(x =>
                     <div key={x.id}>
-                        <p>name - {x.name}</p>
-                        <p>required mental energy - {x.requiredMentalEnergy}</p>
-                        <p>skill level - {x.skillLevel}</p>
+                        <p>{x.name}</p>
+                        <p>- required mental energy - {x.requiredMentalEnergy}</p>
+                        <p>- skill level - {x.skillLevel}</p>
                     </div>)
                 : "None"
             }
@@ -119,9 +119,9 @@ export default function ShowHeroStats({
             {hero.specialAbility.spells.length > 0
                 ? hero.specialAbility.spells.map(x =>
                     <div key={x.id}>
-                        <p>name - {x.name}</p>
-                        <p>required mental energy - {x.requiredMentalEnergy}</p>
-                        <p>skill level - {x.skillLevel}</p>
+                        <p>{x.name}</p>
+                        <p>- required mental energy - {x.requiredMentalEnergy}</p>
+                        <p>- skill level - {x.skillLevel}</p>
                     </div>)
                 : "None"
             }
@@ -129,9 +129,9 @@ export default function ShowHeroStats({
             {hero.specialAbility.rituals.length > 0
                 ? hero.specialAbility.rituals.map(x =>
                     <div key={x.id}>
-                        <p>name - {x.name}</p>
-                        <p>required mental energy - {x.requiredMentalEnergy}</p>
-                        <p>skill level - {x.skillLevel}</p>
+                        <p>{x.name}</p>
+                        <p>- required mental energy - {x.requiredMentalEnergy}</p>
+                        <p>- skill level - {x.skillLevel}</p>
                     </div>)
                 : "None"
             }
@@ -139,7 +139,7 @@ export default function ShowHeroStats({
             {hero.promises.length > 0
                 ? hero.promises.map(x =>
                     <div key={x.id}>
-                        <h5>{x.name} - {x.IsItDone ? "fulfilled" : "unfulfilled"}</h5>
+                        <p>{x.name} - {x.IsItDone ? "fulfilled" : "unfulfilled"}</p>
                     </div>)
                 : "None"
             }
