@@ -36,7 +36,7 @@ export default function Register() {
         <section id="register-page" className="register">
             <form id="register-form" method="POST" onSubmit={onRegisterHandler}>
                 <fieldset>
-                    <legend>Register Form</legend>
+                    <legend>Register</legend>
                     <p className="field">
                         <label htmlFor="email">Email</label>
                         <span className="input">
@@ -46,7 +46,7 @@ export default function Register() {
                     <p className="field">
                         <label htmlFor="password">Password</label>
                         <span className="input">
-                            <input type="password" name="password" id="password" placeholder="Password" required/>
+                            <input type="password" name="password" id="password" placeholder="At least 8 symbols" required/>
                         </span>
                     </p>
                     <input className="button-submit" type="submit" value="Register"/>

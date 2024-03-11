@@ -34,7 +34,7 @@ function StartNewGame() {
                 changeMessage(message);
             })
             .catch(err => {
-                changeMessage("YOU ALREADY HAVE BATTLE GROUP");
+                changeMessage("YOU ALREADY HAVE A BATTLE GROUP!");
             })
 
         navigate('/');
@@ -44,7 +44,7 @@ function StartNewGame() {
         <section className="dropdown-menu">
             <form id="dropdown" method="POST" onSubmit={onSelectHandler}>
                 <fieldset>
-                    <legend>Choose your battle group!</legend>
+                    <legend>Choose your battle group</legend>
                     <p className="field">
                         <DropdownMenu heroTypes={warriorTypes}/>
                         <DropdownMenu heroTypes={fighterTypes}/>

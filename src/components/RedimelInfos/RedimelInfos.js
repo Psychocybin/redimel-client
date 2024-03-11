@@ -16,11 +16,11 @@ const RedimelInfos = () => {
 
     return (
         <section className="redimel-infos-h1">
-            <h1>Допълнителна информация за Редимел</h1>
+            <h1>Additional information about Redimel</h1>
 
             <section>
                 {info.length > 0
-                    ? info.map(x => <RedimelInfo key={x.id} currentInfo={x} />)
+                    ? info.filter(x => x.additionalInfo === "Редимел").map(x => <RedimelInfo key={x.id} currentInfo={x} />)
                     : <h3>Loading...</h3>
                 }
             </section>

@@ -4,7 +4,6 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { isAuth } from "../../hoc/isAuth";
 
 import CurrentPage from "./CurrentPage";
-// import * as pageService from "../../services/pageService";
 import * as startGameService from "../../services/startGameService";
 import CurrentGroupWest from "./CurrentGroupWest";
 import CurrentHero from "./CurrentHero";
@@ -66,8 +65,6 @@ function StartGame() {
         setShowGroupWestStats(gw);
     }
 
-    // console.log(user);
-
     return (
         <div>
             {response
@@ -76,7 +73,7 @@ function StartGame() {
                         <div className="d-flex">
                             <div className="leftpane">
                                 <li>
-                                    <ul key={user.groupWest.id + 1}><CurrentGroupWest key={user.groupWest.id} currentGroupName={"GroupWest"} onShowGroupWestHandler={onShowGroupWestHandler} /></ul>
+                                    <ul key={user.groupWest.id + 1}><CurrentGroupWest key={user.groupWest.id} currentGroupName={"Group West"} onShowGroupWestHandler={onShowGroupWestHandler} /></ul>
                                     {user.groupWest.heroes.sort((x, y) => (x.orderOfBattle - y.orderOfBattle)).map(x =>
                                         <ul key={x.id + 1}><CurrentHero key={x.id} heroId={x.id} heroType={x.heroType} onShowHeroHandler={onShowHeroHandler} /></ul>
                                     )}
@@ -92,7 +89,7 @@ function StartGame() {
                         </div>
                     </div>
                 )
-                : "Loading data..."
+                : "Loading..."
             }
         </div >
     );

@@ -55,7 +55,7 @@ const Login = () => {
         <section id="login-page" className="login">
             <form id="login-form" method="POST" onSubmit={onLoginHandler}>
                 <fieldset>
-                    <legend>Login Form</legend>
+                    <legend>Login</legend>
                     <p className="field">
                         <label htmlFor="email">Email</label>
                         <span className="input">

@@ -12,13 +12,13 @@ function Header() {
                 to="/login"
                 className={({ isActive }) => isActive ? 'navbar-active' : undefined}
             >
-                Вход
+                Login
             </NavLink></button>
             <button className="btn-link"><NavLink
                 to="/register"
                 className={({ isActive }) => isActive ? 'navbar-active' : undefined}
             >
-                Регистрация
+                Register
             </NavLink></button>
         </>
     );
@@ -29,23 +29,23 @@ function Header() {
                 to="/start-new-game"
                 className={({ isActive }) => isActive ? 'navbar-active' : undefined}
             >
-                Започни нова игра
+                Start new game
             </NavLink></button>
             <button className="btn-link"><NavLink
                 to="/start-game"
                 className={({ isActive }) => isActive ? 'navbar-active' : undefined}
             >
-                Продължи играта
+                Continue game
             </NavLink></button>
             <button className="btn-link"><Link to="/logout">
-                Изход
+                Logout
             </Link></button>
         </>
     );
 
     return (
         <header className="app-header">
-            <h1>REDIMEL - the world of humans</h1>
+            <h1>Redimel - the world of humans</h1>
             <nav className="navbar">
                 <section className="redimel-info-dashboard">
                 <button className="btn-link"><NavLink
@@ -53,19 +53,19 @@ function Header() {
                         className={({ isActive }) => isActive ? 'navbar-active' : undefined}
                         end
                     >
-                        Начална страница
+                        Home
                     </NavLink></button>
                     <button className="btn-link"><NavLink
                         to="/world-info"
                         className={({ isActive }) => isActive ? 'navbar-active' : undefined}
                     >
-                        Правила на играта
+                        Rules
                     </NavLink></button>
                     <button className="btn-link"><NavLink
                         to="/redimel-infos"
                         className={({ isActive }) => isActive ? 'navbar-active' : undefined}
                     >
-                        Информация за света
+                        Information
                     </NavLink></button>
 
                     {jwtToken
