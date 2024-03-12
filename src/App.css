@@ -29,9 +29,11 @@ body {
   border-radius: 4px;
   background-color: rgb(223, 207, 190);
 }
-
 .site-footer {
-  max-width: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* max-width: 20; */
   height: 5vh;
   /* color: aqua; */
   text-size-adjust: 22;
@@ -69,6 +71,8 @@ body {
 }
 
 .dropdown-menu {
+  padding-bottom: 10px;
+  padding-top: 10px;
   border-style: solid;
   background-color: rgb(223, 207, 190);
   /* background: rgb(219, 219, 160); */
@@ -81,6 +85,15 @@ body {
   margin-right: 12px;
   margin-left: 2px;
   border-radius: 5px;
+}
+
+.dropdown-menu-p {
+  font-size: large;
+  /* padding-left: 18px;
+  padding-right: 18px;
+  margin-top: 10px;
+  border-radius: 4px;
+  background-color: whitesmoke; */
 }
 
 .input {
@@ -160,5 +173,15 @@ li {
   padding: 1rem;
   border-radius: 6px;
   background-color: rgb(152, 180, 212);
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.remove-battle-group-btn {
+  font-size: medium;
+  width: 40%;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: red;
   box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }

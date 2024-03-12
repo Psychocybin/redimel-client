@@ -28,7 +28,7 @@ function StartNewGame() {
         let defender = formData.get('defender');
         let helper = formData.get('helper');
         let mystic = formData.get('mystic');
-        
+
         await createBattleGroup(jwtToken, warrior, fighter, defender, helper, mystic)
             .then((message) => {
                 changeMessage(message);
@@ -41,22 +41,27 @@ function StartNewGame() {
     }
 
     return (
-        <section className="dropdown-menu">
-            <form id="dropdown" method="POST" onSubmit={onSelectHandler}>
-                <fieldset>
-                    <legend>Choose your battle group</legend>
-                    <p className="field">
-                        <DropdownMenu heroTypes={warriorTypes}/>
-                        <DropdownMenu heroTypes={fighterTypes}/>
-                        <DropdownMenu heroTypes={defenderTypes}/>
-                        <DropdownMenu heroTypes={helperTypes}/>
-                        <DropdownMenu heroTypes={mysticTypes}/>
-                    </p>
-                    <input className="button-submit" type="submit" value="Create Battle Group"/>
-                </fieldset>
-                <Link to="/remove-battle-group">Remove Battle Group</Link>
-            </form>
-        </section>
+        <div className="page-text">
+            <section className="dropdown-menu">
+                <form id="dropdown" method="POST" onSubmit={onSelectHandler}>
+                    <fieldset>
+                        <legend>Choose your battle group</legend>
+                        <p className="field">
+                            <DropdownMenu heroTypes={warriorTypes} />
+                            <DropdownMenu heroTypes={fighterTypes} />
+                            <DropdownMenu heroTypes={defenderTypes} />
+                            <DropdownMenu heroTypes={helperTypes} />
+                            <DropdownMenu heroTypes={mysticTypes} />
+                        </p>
+                        <input className="button-submit" type="submit" value="Create Battle Group" />
+                    </fieldset>
+                    <p className="dropdown-menu-p"><Link to="/remove-battle-group">Remove Battle Group</Link></p>
+                </form>
+            </section>
+            <p>
+                Before you start the game you need to choose which characters you want to participate in your battle group. This group contains five types of heroes - warrior, fighter, defender, helper and mystic. For each type you can choose from three heroes. Fill in your group and click Create Battle Group. Your adventure begins by pressing the button Continue game. If you want to start over, you must first delete your current battle group. For this selection, press Remove Battle Group.
+            </p>
+        </div>
     );
 }
 
