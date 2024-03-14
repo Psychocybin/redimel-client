@@ -1,10 +1,34 @@
 import { NavLink, Link } from "react-router-dom";
-import { useContext } from "react";
+import { useState, useContext, useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
 
 import { AuthContext } from "../../contexts/AuthContext";
 
 function Header() {
     const { jwtToken } = useContext(AuthContext);
+    const [role, setRole] = useState('');
+
+    useEffect(() => {
+        if (jwtToken !== '') {
+            const decodedToken = jwtDecode(jwtToken);
+            const getValues = Object.values(decodedToken);
+
+            setRole(getValues[1]);
+        } else {
+            setRole('');
+        }
+    }, [jwtToken]);
+
+    let adminNavigation = (
+        <>
+            <button className="btn-link"><NavLink
+                to="/admin-panel"
+                className={({ isActive }) => isActive ? 'navbar-active' : undefined}
+            >
+                Admin panel
+            </NavLink></button>
+        </>
+    );
 
     let guestNavigation = (
         <>
@@ -72,6 +96,8 @@ function Header() {
                         ? userNavigation
                         : guestNavigation
                     }
+
+                    {role === "Writer" && adminNavigation}
                 </section>
             </nav>
         </header>

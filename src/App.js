@@ -16,6 +16,7 @@ import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
 import RemoveBattleGroup from './components/RemoveBattleGroup/RemoveBattleGroup';
+import AdminPanel from './components/AdminPanel/AdminPanel';
 
 function App() {
 	
@@ -28,6 +29,7 @@ function App() {
 					<main id='site-content' className='main'>
 						<Routes>
 							<Route path="/" element={<RedimelHome />} />
+							<Route path="/admin-panel" element={<AdminPanel />} />
 							<Route path="/start-new-game" element={<StartNewGame />} />
 							<Route path="/remove-battle-group" element={<RemoveBattleGroup />} />
 							<Route path="/register" element={<Register />} />

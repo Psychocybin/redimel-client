@@ -185,3 +185,7 @@ li {
   background-color: red;
   box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
+
+.remove-battle-group-btn:hover {
+  background-color: darkred;
+}
