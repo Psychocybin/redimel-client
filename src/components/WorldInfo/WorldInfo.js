@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 
 import { getAll } from "../../services/redimelInfoService";
+import { convertStringToArray } from "../../services/AuxiliaryService";
 
 function WorldInfo() {
-    const [info, setInfo] = useState([]);
     const [currentInfo, setCurrentInfo] = useState([]);
+    const [description, setDescription] = useState(null);
 
     useEffect(() => {
         getAll()
             .then(info => {
-                setInfo(info);
+                setCurrentInfo(info.find(x => x.additionalInfo === "rules"));
             });
     }, []);
 
     useEffect(() => {
-        const findCurrentinfo = info.find(x => x.additionalInfo === "");
-
-        setCurrentInfo(findCurrentinfo);
-    }, [info]);
+        if (currentInfo.description !== undefined) {
+            setDescription(convertStringToArray(currentInfo.description));
+        }
+    }, [currentInfo]);
 
     return (
         <section>
@@ -25,7 +26,7 @@ function WorldInfo() {
                 {currentInfo
                     ? <section className="redimel-info">
                             <h3>{currentInfo.title}</h3>
-                            <p>{currentInfo.description}</p>
+                            {description && description.map((x, index) => <p key={index}>{x}</p>)}
                         </section>
                     : <h3>Loading...</h3>
                 }

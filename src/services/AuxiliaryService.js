@@ -229,3 +229,9 @@ export function getTalismanType(talismanType) {
 
     return talismanType;
 }
+
+export function convertStringToArray(text) {
+    let result = text.split("@");
+
+    return result;
+}   

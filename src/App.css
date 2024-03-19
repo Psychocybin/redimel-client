@@ -53,6 +53,7 @@ body {
 }
 
 .redimel-info {
+  text-align: justify;
   margin: 2rem auto;
   padding: 2rem;
   max-width: 60rem;
@@ -60,6 +61,11 @@ body {
   background-color: rgb(152, 180, 212);
   /* background: linear-gradient(#93c9cb, #6ed4db); */
   box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.redimel-info h3 {
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 .redimel-info-btn {
@@ -156,6 +162,7 @@ li {
 }
 
 .page-text {
+  text-align: justify;
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: 40px;
