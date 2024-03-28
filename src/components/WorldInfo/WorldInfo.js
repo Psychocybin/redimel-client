@@ -11,6 +11,9 @@ function WorldInfo() {
         getAll()
             .then(info => {
                 setCurrentInfo(info.find(x => x.additionalInfo === "rules"));
+            })
+            .catch(err => {
+                console.log(err);
             });
     }, []);
 

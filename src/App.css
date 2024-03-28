@@ -1,5 +1,6 @@
 body {
   margin: 0!important;
+  cursor: default;
 }
 
 .app {
@@ -69,6 +70,7 @@ body {
 }
 
 .redimel-info-btn {
+  cursor: pointer;
   min-width: 600px;
 }
 
@@ -77,6 +79,7 @@ body {
 }
 
 .dropdown-menu {
+  text-align: center;
   padding-bottom: 10px;
   padding-top: 10px;
   border-style: solid;
@@ -86,6 +89,7 @@ body {
 }
 
 .dropdown-menu select {
+  cursor: pointer;
   font-size: 0.9rem;
   padding: 2px 5px;
   margin-right: 12px;
@@ -107,6 +111,7 @@ body {
 }
 
 .button-submit {
+  cursor: pointer;
   background-color: #04AA6D;
   border: none;
   color: white;
@@ -130,6 +135,7 @@ body {
 }
 
 .leftpane button {
+  cursor: pointer;
   width: 100%;
 }
 
@@ -174,6 +180,7 @@ li {
 }
 
 .page-choices button{
+  cursor: pointer;
   font-size: medium;
   width: 60%;
   margin: 1rem auto;
@@ -184,6 +191,7 @@ li {
 }
 
 .remove-battle-group-btn {
+  cursor: pointer;
   font-size: medium;
   width: 40%;
   margin: 1rem auto;

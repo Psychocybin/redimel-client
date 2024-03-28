@@ -20,7 +20,7 @@ const RedimelInfos = () => {
 
             <section>
                 {info.length > 0
-                    ? info.filter(x => x.additionalInfo === "Редимел").map(x => <RedimelInfo key={x.id} currentInfo={x} />)
+                    ? info.filter(x => x.additionalInfo === "redimel").map(x => <RedimelInfo key={x.id} currentInfo={x} />)
                     : <h3>Loading...</h3>
                 }
             </section>

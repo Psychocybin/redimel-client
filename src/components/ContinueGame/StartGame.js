@@ -5,6 +5,7 @@ import { isAuth } from "../../hoc/isAuth";
 
 import CurrentPage from "./CurrentPage";
 import * as startGameService from "../../services/startGameService";
+import { getCurrentPage } from "../../services/pageService";
 import CurrentGroupWest from "./CurrentGroupWest";
 import CurrentHero from "./CurrentHero";
 import ShowHeroStats from "./ShowHeroStats";
@@ -65,6 +66,20 @@ function StartGame() {
         setShowGroupWestStats(gw);
     }
 
+    const onChoiceAction = (currentChoice, event) => {
+        event.preventDefault();
+
+        getCurrentPage(jwtToken, currentChoice)
+            .then(userRes => {
+                setUser(userRes.user);
+                setBattlePoints(userRes.battlePoints);
+                setPage(userRes.page);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
     return (
         <div>
             {response
@@ -80,7 +95,7 @@ function StartGame() {
                                 </li>
                             </div>
                             <div className="middlepane">
-                                <CurrentPage page={page} />
+                                <CurrentPage page={page} onChoiceAction={onChoiceAction} />
                             </div>
                             <div className="rightpane">
                                 {showGroupWestStats && <ShowGroupWestStats groupWest={showGroupWestStats} />}
