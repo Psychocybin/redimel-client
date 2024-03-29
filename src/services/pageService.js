@@ -1,5 +1,5 @@
 export async function getCurrentPage(jwtToken, choice){
-    const res = await fetch('https://localhost:7260/api/StartGame/BoardBookGame', {
+    const res = await fetch('http://georgitsekov-001-site2.atempurl.com/api/StartGame/BoardBookGame', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',

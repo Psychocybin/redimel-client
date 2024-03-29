@@ -1,5 +1,5 @@
 export const login = async (username, password) => {
-    let res = await fetch('https://localhost:7260/api/Auth/Login', {
+    let res = await fetch('http://georgitsekov-001-site2.atempurl.com/api/Auth/Login', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -25,7 +25,7 @@ export const logout = (jwtToken) => {
 export const register = async (username, password) => {
     const roles = ["READER"];
 
-    let res = await fetch('https://localhost:7260/api/Auth/Register', {
+    let res = await fetch('http://georgitsekov-001-site2.atempurl.com/api/Auth/Register', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

@@ -1,5 +1,5 @@
 export async function getUserAndPage(jwtToken) {
-    const res = await fetch('https://localhost:7260/api/StartGame/StartGame', {
+    const res = await fetch('http://georgitsekov-001-site2.atempurl.com/api/StartGame/StartGame', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

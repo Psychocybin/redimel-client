@@ -1,5 +1,5 @@
 export async function createBattleGroup(jwtToken, warrior, fighter, defender, helper, mystic) {
-    const res = await fetch('https://localhost:7260/api/StartGame', {
+    const res = await fetch('http://georgitsekov-001-site2.atempurl.com/api/StartGame', {
         method:'POST',
         headers: {
             'content-type': 'application/json',

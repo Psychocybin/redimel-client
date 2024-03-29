@@ -1,5 +1,5 @@
 export async function removeBattleGroup(jwtToken) {
-    const res = await fetch('https://localhost:7260/api/StartGame/RemoveBattleGroup', {
+    const res = await fetch('http://georgitsekov-001-site2.atempurl.com/api/StartGame/RemoveBattleGroup', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
